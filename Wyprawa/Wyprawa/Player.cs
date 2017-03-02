@@ -53,8 +53,12 @@ namespace Wyprawa
             base.location = Move(direction, game.Boundaries);
             if (!game.WeaponInRoom.PickedUp)
             {
-                if (Nearby(location, 1))
+                if (Nearby(game.WeaponInRoom.Location, 1))
+                {
+                    game.WeaponInRoom.PickUpWeapon();
                     inventory.Add(game.WeaponInRoom);
+                    game.WeaponInRoom = null;
+                }    
                 if (inventory.Count == 1)
                     this.Equip(inventory[0].Name);
             }
