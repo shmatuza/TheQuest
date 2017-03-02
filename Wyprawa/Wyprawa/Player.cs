@@ -62,15 +62,18 @@ namespace Wyprawa
 
         public void Attack(Direction direction, Random random)
         {
-            if (this.equippedWeapon == null)
-                return;
-            else if (equippedWeapon is IPotion)
+            if (this.equippedWeapon != null)
             {
-                equippedWeapon.Attack(direction);
-                inventory.Remove(equippedWeapon);
+                if (equippedWeapon is IPotion)
+                {
+                    IPotion potion;
+                    potion = equippedWeapon as IPotion;
+                    potion.Attack();
+                    inventory.Remove(potion);
+                }
+                else
+                    equippedWeapon.Attack(direction, random);
             }
-            else
-                equippedWeapon.Attack(direction, random);
         }
     }
 }
