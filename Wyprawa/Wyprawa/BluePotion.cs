@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Wyprawa
 {
-    class RedPotion : Weapon, IPotion
+    class BluePotion : Weapon, IPotion
     {
-        public RedPotion(Game game, Point location) : base (game, location) { Used = false; }
+        public BluePotion(Game game, Point location) : base (game, location) { Used = false; }
 
-        public override string Name { get { return "Czerwona mikstura"; } }
+        public override string Name { get { return "Niebieska mikstura"; } }
 
         public bool Used { get; private set; }
 
         public override void Attack(Direction direction, Random random)
         {
-            game.IncreasePlayerHealth(10, random);
+            game.IncreasePlayerHealth(5, random);
             Used = true;
         }
     }
