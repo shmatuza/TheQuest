@@ -57,7 +57,7 @@ namespace Wyprawa
                 {
                     game.WeaponInRoom.PickUpWeapon();
                     inventory.Add(game.WeaponInRoom);
-                    game.WeaponInRoom = null;
+                    //game.WeaponInRoom = null;
                 }    
                 if (inventory.Count == 1)
                     this.Equip(inventory[0].Name);
