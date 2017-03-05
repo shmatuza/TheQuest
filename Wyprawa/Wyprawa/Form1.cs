@@ -142,7 +142,126 @@ namespace Wyprawa
 
         private void UpdateCharacters()
         {
-            throw new NotImplementedException();
+            playerPicture.Location = game.PlayerLocation;
+            playerHitPoints.Text = game.PlayerHitPoints.ToString();
+
+            bool showBat = false;
+            bool showGhost = false;
+            bool showGhoul = false;
+            int enemiesShown = 0;
+
+            foreach (Enemy enemy in game.Enemies)
+            {
+                if(enemy is Bat)
+                {
+                    bat.Location = enemy.Location;
+                    batHitPoints.Text = enemy.HitPoints.ToString();
+                    if (enemy.HitPoints > 0)
+                    {
+                        showBat = true;
+                        enemiesShown++;
+                    }
+                }
+            }
+            foreach (Enemy enemy in game.Enemies)
+            {
+                if (enemy is Ghost)
+                {
+                    ghost.Location = enemy.Location;
+                    ghostHitPoints.Text = enemy.HitPoints.ToString();
+                    if (enemy.HitPoints > 0)
+                    {
+                        showGhost = true;
+                        enemiesShown++;
+                    }
+                }
+            }
+            foreach (Enemy enemy in game.Enemies)
+            {
+                if (enemy is Ghoul)
+                {
+                    ghoul.Location = enemy.Location;
+                    ghoulHitPoints.Text = enemy.HitPoints.ToString();
+                    if (enemy.HitPoints > 0)
+                    {
+                        showGhoul = true;
+                        enemiesShown++;
+                    }
+                }
+            }
+            if (showBat == true)
+                bat.Visible = true;
+            else
+                bat.Visible = false;
+
+            if (showGhost == true)
+                ghost.Visible = true;
+            else
+                ghost.Visible = false;
+
+            if (showGhoul == true)
+                ghoul.Visible = true;
+            else
+                ghoul.Visible = false;
+
+            sword.Visible = false;
+            bow.Visible = false;
+            mace.Visible = false;
+            potionRed.Visible = false;
+            potionBlue.Visible = false;
+            Control weaponControl = null;
+            switch (game.WeaponInRoom.Name)
+            {
+                case "Miecz":
+                    weaponControl = sword; break;
+                case "Łuk":
+                    weaponControl = bow; break;
+                case "Buława":
+                    weaponControl = mace; break;
+                case "Czerwona mikstura":
+                    weaponControl = potionRed; break;
+                case "Niebieska mikstura":
+                    weaponControl = potionBlue; break;
+            }
+            weaponControl.Visible = true;
+
+            if (game.CheckPlayerInventory("Miecz"))
+                swordEq.Visible = true;
+            else swordEq.Visible = false;
+
+            if (game.CheckPlayerInventory("Łuk"))
+                bowEq.Visible = true;
+            else bowEq.Visible = false;
+
+            if (game.CheckPlayerInventory("Buława"))
+                maceEq.Visible = true;
+            else maceEq.Visible = false;
+
+            if (game.CheckPlayerInventory("Czerwona mikstura"))
+                potionRedEq.Visible = true;
+            else potionRedEq.Visible = false;
+
+            if (game.CheckPlayerInventory("Niebieska mikstura"))
+                potionBlueEq.Visible = true;
+            else potionBlueEq.Visible = false;
+
+            weaponControl.Location = game.WeaponInRoom.Location;
+            if (game.WeaponInRoom.PickedUp)
+                weaponControl.Visible = false;
+            else weaponControl.Visible = true;
+
+            if (game.PlayerHitPoints <= 0)
+            {
+                MessageBox.Show("Zostałeś zabity!");
+                Application.Exit();
+            }
+
+            if (enemiesShown < 1)
+            {
+                MessageBox.Show("Pokonałeś przeciwników na tym poziomie");
+                game.NewLevel(random);
+                UpdateCharacters();
+            }
         }
     }
 }
