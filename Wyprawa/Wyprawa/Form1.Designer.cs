@@ -314,36 +314,32 @@
             this.playerHitPoints.AutoSize = true;
             this.playerHitPoints.Location = new System.Drawing.Point(63, 0);
             this.playerHitPoints.Name = "playerHitPoints";
-            this.playerHitPoints.Size = new System.Drawing.Size(77, 13);
+            this.playerHitPoints.Size = new System.Drawing.Size(0, 13);
             this.playerHitPoints.TabIndex = 4;
-            this.playerHitPoints.Text = "playerHitPoints";
             // 
             // batHitPoints
             // 
             this.batHitPoints.AutoSize = true;
             this.batHitPoints.Location = new System.Drawing.Point(63, 14);
             this.batHitPoints.Name = "batHitPoints";
-            this.batHitPoints.Size = new System.Drawing.Size(64, 13);
+            this.batHitPoints.Size = new System.Drawing.Size(0, 13);
             this.batHitPoints.TabIndex = 5;
-            this.batHitPoints.Text = "batHitPoints";
             // 
             // ghostHitPoints
             // 
             this.ghostHitPoints.AutoSize = true;
             this.ghostHitPoints.Location = new System.Drawing.Point(63, 28);
             this.ghostHitPoints.Name = "ghostHitPoints";
-            this.ghostHitPoints.Size = new System.Drawing.Size(75, 13);
+            this.ghostHitPoints.Size = new System.Drawing.Size(0, 13);
             this.ghostHitPoints.TabIndex = 6;
-            this.ghostHitPoints.Text = "ghostHitPoints";
             // 
             // ghoulHitPoints
             // 
             this.ghoulHitPoints.AutoSize = true;
             this.ghoulHitPoints.Location = new System.Drawing.Point(63, 42);
             this.ghoulHitPoints.Name = "ghoulHitPoints";
-            this.ghoulHitPoints.Size = new System.Drawing.Size(75, 13);
+            this.ghoulHitPoints.Size = new System.Drawing.Size(0, 13);
             this.ghoulHitPoints.TabIndex = 7;
-            this.ghoulHitPoints.Text = "ghoulHitPoints";
             // 
             // groupBox1
             // 

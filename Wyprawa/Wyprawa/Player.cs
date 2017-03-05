@@ -71,6 +71,7 @@ namespace Wyprawa
                 {
                     equippedWeapon.Attack(direction, random);
                     inventory.Remove(equippedWeapon);
+                    Equip(inventory[0].Name);
                 }
                 else
                     equippedWeapon.Attack(direction, random);

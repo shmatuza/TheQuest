@@ -36,7 +36,15 @@ namespace Wyprawa
                 bowEq.BorderStyle = BorderStyle.None;
                 maceEq.BorderStyle = BorderStyle.None;
                 potionRedEq.BorderStyle = BorderStyle.None;
-                potionBlueEq.BorderStyle = BorderStyle.None;    
+                potionBlueEq.BorderStyle = BorderStyle.None;
+
+                groupBox2.Text = "Atak";
+                upAttackButton.Text = "↑";
+                upAttackButton.Width = 23;
+                upAttackButton.Location = new Point(35, 16);
+                leftAttackButton.Visible = true;
+                rightAttackButton.Visible = true;
+                downAttackButton.Visible = true;  
             }
         }
 
@@ -50,6 +58,14 @@ namespace Wyprawa
                 maceEq.BorderStyle = BorderStyle.None;
                 potionRedEq.BorderStyle = BorderStyle.None;
                 potionBlueEq.BorderStyle = BorderStyle.None;
+
+                groupBox2.Text = "Atak";
+                upAttackButton.Text = "↑";
+                upAttackButton.Width = 23;
+                upAttackButton.Location = new Point(35, 16);
+                leftAttackButton.Visible = true;
+                rightAttackButton.Visible = true;
+                downAttackButton.Visible = true;
             }
         }
 
@@ -63,6 +79,14 @@ namespace Wyprawa
                 maceEq.BorderStyle = BorderStyle.FixedSingle;
                 potionRedEq.BorderStyle = BorderStyle.None;
                 potionBlueEq.BorderStyle = BorderStyle.None;
+
+                groupBox2.Text = "Atak";
+                upAttackButton.Text = "↑";
+                upAttackButton.Width = 23;
+                upAttackButton.Location = new Point(35, 16);
+                leftAttackButton.Visible = true;
+                rightAttackButton.Visible = true;
+                downAttackButton.Visible = true;
             }
         }
 
@@ -76,6 +100,15 @@ namespace Wyprawa
                 maceEq.BorderStyle = BorderStyle.None;
                 potionRedEq.BorderStyle = BorderStyle.FixedSingle;
                 potionBlueEq.BorderStyle = BorderStyle.None;
+
+                groupBox2.Text = "Użyj mikstury!";
+                upAttackButton.Text = "Ulecz się";
+                upAttackButton.Width = 60;
+                upAttackButton.Location = new Point(15, 28);
+                leftAttackButton.Visible = false;
+                rightAttackButton.Visible = false;
+                downAttackButton.Visible = false;
+
             }
         }
 
@@ -89,6 +122,14 @@ namespace Wyprawa
                 maceEq.BorderStyle = BorderStyle.None;
                 potionRedEq.BorderStyle = BorderStyle.None;
                 potionBlueEq.BorderStyle = BorderStyle.FixedSingle;
+
+                groupBox2.Text = "Użyj mikstury";
+                upAttackButton.Text = "Ulecz się";
+                upAttackButton.Width = 60;
+                upAttackButton.Location = new Point(15, 28);
+                leftAttackButton.Visible = false;
+                rightAttackButton.Visible = false;
+                downAttackButton.Visible = false;
             }
         }
 
@@ -142,6 +183,7 @@ namespace Wyprawa
 
         private void UpdateCharacters()
         {
+            playerPicture.Visible = Visible;
             playerPicture.Location = game.PlayerLocation;
             playerHitPoints.Text = game.PlayerHitPoints.ToString();
 
@@ -190,19 +232,40 @@ namespace Wyprawa
                 }
             }
             if (showBat == true)
+            {
+                label2.Text = "Nietoperz";
                 bat.Visible = true;
+            }
             else
+            {
                 bat.Visible = false;
+                label2.Text = "";
+                batHitPoints.Text = "";
+            }
 
             if (showGhost == true)
+            {
+                label3.Text = "Duch";
                 ghost.Visible = true;
+            }
             else
+            {
                 ghost.Visible = false;
+                label3.Text = "";
+                ghostHitPoints.Text = "";
+            }
 
             if (showGhoul == true)
+            {
                 ghoul.Visible = true;
+                label4.Text = "Upiór";
+            }
             else
+            {
                 ghoul.Visible = false;
+                label4.Text = "";
+                ghoulHitPoints.Text = "";
+            }
 
             sword.Visible = false;
             bow.Visible = false;
