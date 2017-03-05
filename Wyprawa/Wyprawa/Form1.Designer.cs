@@ -367,6 +367,7 @@
             this.rightMoveButton.TabIndex = 3;
             this.rightMoveButton.Text = "→";
             this.rightMoveButton.UseVisualStyleBackColor = true;
+            this.rightMoveButton.Click += new System.EventHandler(this.rightMoveButton_Click);
             // 
             // downMoveButton
             // 
@@ -376,6 +377,7 @@
             this.downMoveButton.TabIndex = 2;
             this.downMoveButton.Text = "↓";
             this.downMoveButton.UseVisualStyleBackColor = true;
+            this.downMoveButton.Click += new System.EventHandler(this.downMoveButton_Click);
             // 
             // upMoveButton
             // 
@@ -385,6 +387,7 @@
             this.upMoveButton.TabIndex = 1;
             this.upMoveButton.Text = "↑";
             this.upMoveButton.UseVisualStyleBackColor = true;
+            this.upMoveButton.Click += new System.EventHandler(this.upMoveButton_Click);
             // 
             // leftMoveButton
             // 
@@ -394,6 +397,7 @@
             this.leftMoveButton.TabIndex = 0;
             this.leftMoveButton.Text = "←";
             this.leftMoveButton.UseVisualStyleBackColor = true;
+            this.leftMoveButton.Click += new System.EventHandler(this.leftMoveButton_Click);
             // 
             // groupBox2
             // 
@@ -417,6 +421,7 @@
             this.rightAttackButton.TabIndex = 3;
             this.rightAttackButton.Text = "→";
             this.rightAttackButton.UseVisualStyleBackColor = true;
+            this.rightAttackButton.Click += new System.EventHandler(this.rightAttackButton_Click);
             // 
             // downAttackButton
             // 
@@ -426,6 +431,7 @@
             this.downAttackButton.TabIndex = 2;
             this.downAttackButton.Text = "↓";
             this.downAttackButton.UseVisualStyleBackColor = true;
+            this.downAttackButton.Click += new System.EventHandler(this.downAttackButton_Click);
             // 
             // upAttackButton
             // 
@@ -435,6 +441,7 @@
             this.upAttackButton.TabIndex = 1;
             this.upAttackButton.Text = "↑";
             this.upAttackButton.UseVisualStyleBackColor = true;
+            this.upAttackButton.Click += new System.EventHandler(this.upAttackButton_Click);
             // 
             // leftAttackButton
             // 
@@ -444,6 +451,7 @@
             this.leftAttackButton.TabIndex = 0;
             this.leftAttackButton.Text = "←";
             this.leftAttackButton.UseVisualStyleBackColor = true;
+            this.leftAttackButton.Click += new System.EventHandler(this.leftAttackButton_Click);
             // 
             // Form1
             // 

@@ -91,5 +91,58 @@ namespace Wyprawa
                 potionBlueEq.BorderStyle = BorderStyle.FixedSingle;
             }
         }
+
+        private void upMoveButton_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Up, random);
+            UpdateCharacters();
+        }
+
+        private void rightMoveButton_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Right, random);
+            UpdateCharacters();
+        }
+
+        private void downMoveButton_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Down, random);
+            UpdateCharacters();
+        }
+
+        private void leftMoveButton_Click(object sender, EventArgs e)
+        {
+            game.Move(Direction.Left, random);
+            UpdateCharacters();
+        }
+
+        private void upAttackButton_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Up, random);
+            UpdateCharacters();
+        }
+
+        private void rightAttackButton_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Right, random);
+            UpdateCharacters();
+        }
+
+        private void downAttackButton_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Down, random);
+            UpdateCharacters();
+        }
+
+        private void leftAttackButton_Click(object sender, EventArgs e)
+        {
+            game.Attack(Direction.Left, random);
+            UpdateCharacters();
+        }
+
+        private void UpdateCharacters()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

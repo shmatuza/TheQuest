@@ -10,7 +10,7 @@ namespace Wyprawa
 {
     class Game
     {
-        public IEnumerable<Enemy> Enemies { get; private set; }
+        public List<Enemy> Enemies { get; private set; }
         public Weapon WeaponInRoom { get; private set; }
 
         private Player player;
@@ -82,18 +82,18 @@ namespace Wyprawa
                     WeaponInRoom = new Sword(this, GetRandomLocation(random));
                     break;
                 case 2:
-                    Enemies = new List<Enemy>();
+                    Enemies.Clear();
                     Enemies.Add(new Ghost(this, GetRandomLocation(random)));
                     if (!CheckPlayerInventory("Niebieska mikstura"))
                         WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     break;
                 case 3:
-                    Enemies = new List<Enemy>();
+                    Enemies.Clear();
                     Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
                     WeaponInRoom = new Bow(this, GetRandomLocation(random));
                     break;
                 case 4:
-                    Enemies = new List<Enemy>();
+                    Enemies.Clear();
                     Enemies.Add(new Bat(this, GetRandomLocation(random)));
                     Enemies.Add(new Ghost(this, GetRandomLocation(random)));
                     if (!CheckPlayerInventory("Łuk"))
@@ -102,20 +102,20 @@ namespace Wyprawa
                         WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     break;
                 case 5:
-                    Enemies = new List<Enemy>();
+                    Enemies.Clear();
                     Enemies.Add(new Bat(this, GetRandomLocation(random)));
                     Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
                     if (!CheckPlayerInventory("Czerwona mikstura"))
                         WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
                     break;
                 case 6:
-                    Enemies = new List<Enemy>();
+                    Enemies.Clear();
                     Enemies.Add(new Ghost(this, GetRandomLocation(random)));
                     Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
                     WeaponInRoom = new Mace(this, GetRandomLocation(random));
                     break;
                 case 7:
-                    Enemies = new List<Enemy>();
+                    Enemies.Clear();
                     Enemies.Add(new Bat(this, GetRandomLocation(random)));
                     Enemies.Add(new Ghost(this, GetRandomLocation(random)));
                     Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
