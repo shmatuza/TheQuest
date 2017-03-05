@@ -10,7 +10,7 @@ namespace Wyprawa
 {
     class Game
     {
-        public List<Enemy> Enemies { get; private set; }
+        public IEnumerable<Enemy> Enemies { get; private set; }
         public Weapon WeaponInRoom { get; private set; }
 
         private Player player;
@@ -77,48 +77,63 @@ namespace Wyprawa
             switch (level)
             {
                 case 1:
-                    Enemies = new List<Enemy>();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
+                    Enemies = new List<Enemy>()
+                    {
+                        new Bat(this, GetRandomLocation(random))
+                    };
                     WeaponInRoom = new Sword(this, GetRandomLocation(random));
                     break;
                 case 2:
-                    Enemies.Clear();
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
+                    Enemies = new List<Enemy>()
+                    {
+                        new Ghost(this, GetRandomLocation(random))
+                    };                  
                     if (!CheckPlayerInventory("Niebieska mikstura"))
                         WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     break;
                 case 3:
-                    Enemies.Clear();
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
+                    Enemies = new List<Enemy>()
+                    {
+                        new Ghoul(this, GetRandomLocation(random))
+                    };                 
                     WeaponInRoom = new Bow(this, GetRandomLocation(random));
                     break;
                 case 4:
-                    Enemies.Clear();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
+                    Enemies = new List<Enemy>()
+                    {
+                    new Bat(this, GetRandomLocation(random)),
+                    new Ghost(this, GetRandomLocation(random))
+                    };       
                     if (!CheckPlayerInventory("Łuk"))
                         WeaponInRoom = new Bow(this, GetRandomLocation(random));
                     else if (!CheckPlayerInventory("Niebieska mikstura"))
                         WeaponInRoom = new BluePotion(this, GetRandomLocation(random));
                     break;
                 case 5:
-                    Enemies.Clear();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
+                    Enemies = new List<Enemy>()
+                    {
+                    new Bat(this, GetRandomLocation(random)),
+                    new Ghoul(this, GetRandomLocation(random))
+                    };
+                    
                     if (!CheckPlayerInventory("Czerwona mikstura"))
                         WeaponInRoom = new RedPotion(this, GetRandomLocation(random));
                     break;
                 case 6:
-                    Enemies.Clear();
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
+                    Enemies = new List<Enemy>()
+                    {
+                    new Ghost(this, GetRandomLocation(random)),
+                    new Ghoul(this, GetRandomLocation(random))
+                    };
                     WeaponInRoom = new Mace(this, GetRandomLocation(random));
                     break;
                 case 7:
-                    Enemies.Clear();
-                    Enemies.Add(new Bat(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghost(this, GetRandomLocation(random)));
-                    Enemies.Add(new Ghoul(this, GetRandomLocation(random)));
+                    Enemies = new List<Enemy>()
+                    {
+                    new Bat(this, GetRandomLocation(random)),
+                    new Ghost(this, GetRandomLocation(random)),
+                    new Ghoul(this, GetRandomLocation(random))
+                    };
                     if (!CheckPlayerInventory("Buława"))
                         WeaponInRoom = new Mace(this, GetRandomLocation(random));
                     else if (!CheckPlayerInventory("Czerwona mikstura"))
