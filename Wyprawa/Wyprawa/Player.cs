@@ -70,10 +70,8 @@ namespace Wyprawa
             {
                 if (equippedWeapon is IPotion)
                 {
-                    IPotion potion;
-                    potion = equippedWeapon as IPotion;
-                    potion.Attack();
-                    inventory.Remove(potion);
+                    equippedWeapon.Attack(direction, random);
+                    inventory.Remove(equippedWeapon);
                 }
                 else
                     equippedWeapon.Attack(direction, random);
