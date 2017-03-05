@@ -15,10 +15,19 @@ namespace Wyprawa
 
         public override void Attack(Direction direction, Random random)
         {
-            if (!DamageEnemy(Direction.Right, 20, 6, random))
-                if (!DamageEnemy(Direction.Down, 20, 6, random))
-                    if (!DamageEnemy(Direction.Left, 20, 6, random))
+            if (!DamageEnemy(direction, 20, 6, random))
+            {
+                Direction nextAttack = CounterClockWiseDirection(direction);
+                if (!DamageEnemy(nextAttack, 20, 6, random))
+                {
+                    nextAttack = CounterClockWiseDirection(direction);
+                    if (!DamageEnemy(nextAttack, 20, 6, random))
+                    {
+                        nextAttack = CounterClockWiseDirection(direction);
                         DamageEnemy(Direction.Up, 20, 6, random);
+                    }
+                }
+            }
         }
     }
 }
