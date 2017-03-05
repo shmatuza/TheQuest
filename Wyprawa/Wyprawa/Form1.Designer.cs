@@ -53,10 +53,10 @@
             this.ghostHitPoints = new System.Windows.Forms.Label();
             this.ghoulHitPoints = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.leftMoveButton = new System.Windows.Forms.Button();
-            this.upMoveButton = new System.Windows.Forms.Button();
-            this.downMoveButton = new System.Windows.Forms.Button();
             this.rightMoveButton = new System.Windows.Forms.Button();
+            this.downMoveButton = new System.Windows.Forms.Button();
+            this.upMoveButton = new System.Windows.Forms.Button();
+            this.leftMoveButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rightAttackButton = new System.Windows.Forms.Button();
             this.downAttackButton = new System.Windows.Forms.Button();
@@ -91,6 +91,7 @@
             this.swordEq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.swordEq.TabIndex = 0;
             this.swordEq.TabStop = false;
+            this.swordEq.Click += new System.EventHandler(this.swordEq_Click);
             // 
             // bowEq
             // 
@@ -102,6 +103,7 @@
             this.bowEq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.bowEq.TabIndex = 1;
             this.bowEq.TabStop = false;
+            this.bowEq.Click += new System.EventHandler(this.bowEq_Click);
             // 
             // maceEq
             // 
@@ -113,6 +115,7 @@
             this.maceEq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.maceEq.TabIndex = 2;
             this.maceEq.TabStop = false;
+            this.maceEq.Click += new System.EventHandler(this.maceEq_Click);
             // 
             // potionRedEq
             // 
@@ -124,6 +127,7 @@
             this.potionRedEq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.potionRedEq.TabIndex = 3;
             this.potionRedEq.TabStop = false;
+            this.potionRedEq.Click += new System.EventHandler(this.potionRedEq_Click);
             // 
             // potionBlueEq
             // 
@@ -135,6 +139,7 @@
             this.potionBlueEq.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.potionBlueEq.TabIndex = 4;
             this.potionBlueEq.TabStop = false;
+            this.potionBlueEq.Click += new System.EventHandler(this.potionBlueEq_Click);
             // 
             // playerPicture
             // 
@@ -354,23 +359,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ruch";
             // 
-            // leftMoveButton
+            // rightMoveButton
             // 
-            this.leftMoveButton.Location = new System.Drawing.Point(10, 28);
-            this.leftMoveButton.Name = "leftMoveButton";
-            this.leftMoveButton.Size = new System.Drawing.Size(23, 23);
-            this.leftMoveButton.TabIndex = 0;
-            this.leftMoveButton.Text = "←";
-            this.leftMoveButton.UseVisualStyleBackColor = true;
-            // 
-            // upMoveButton
-            // 
-            this.upMoveButton.Location = new System.Drawing.Point(35, 16);
-            this.upMoveButton.Name = "upMoveButton";
-            this.upMoveButton.Size = new System.Drawing.Size(23, 23);
-            this.upMoveButton.TabIndex = 1;
-            this.upMoveButton.Text = "↑";
-            this.upMoveButton.UseVisualStyleBackColor = true;
+            this.rightMoveButton.Location = new System.Drawing.Point(60, 28);
+            this.rightMoveButton.Name = "rightMoveButton";
+            this.rightMoveButton.Size = new System.Drawing.Size(23, 23);
+            this.rightMoveButton.TabIndex = 3;
+            this.rightMoveButton.Text = "→";
+            this.rightMoveButton.UseVisualStyleBackColor = true;
             // 
             // downMoveButton
             // 
@@ -381,14 +377,23 @@
             this.downMoveButton.Text = "↓";
             this.downMoveButton.UseVisualStyleBackColor = true;
             // 
-            // rightMoveButton
+            // upMoveButton
             // 
-            this.rightMoveButton.Location = new System.Drawing.Point(60, 28);
-            this.rightMoveButton.Name = "rightMoveButton";
-            this.rightMoveButton.Size = new System.Drawing.Size(23, 23);
-            this.rightMoveButton.TabIndex = 3;
-            this.rightMoveButton.Text = "→";
-            this.rightMoveButton.UseVisualStyleBackColor = true;
+            this.upMoveButton.Location = new System.Drawing.Point(35, 16);
+            this.upMoveButton.Name = "upMoveButton";
+            this.upMoveButton.Size = new System.Drawing.Size(23, 23);
+            this.upMoveButton.TabIndex = 1;
+            this.upMoveButton.Text = "↑";
+            this.upMoveButton.UseVisualStyleBackColor = true;
+            // 
+            // leftMoveButton
+            // 
+            this.leftMoveButton.Location = new System.Drawing.Point(10, 28);
+            this.leftMoveButton.Name = "leftMoveButton";
+            this.leftMoveButton.Size = new System.Drawing.Size(23, 23);
+            this.leftMoveButton.TabIndex = 0;
+            this.leftMoveButton.Text = "←";
+            this.leftMoveButton.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -468,6 +473,7 @@
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Wyprawa";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.swordEq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bowEq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maceEq)).EndInit();
