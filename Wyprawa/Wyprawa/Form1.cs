@@ -25,6 +25,7 @@ namespace Wyprawa
             game = new Game(new Rectangle(78, 57, 420, 155));
             game.NewLevel(random);
             UpdateCharacters();
+            this.KeyPreview = true;
         }
 
         private void swordEq_Click(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace Wyprawa
                 potionBlueEq.BorderStyle = BorderStyle.None;
 
                 groupBox2.Text = "Atak";
-                upAttackButton.Text = "↑";
+                upAttackButton.Text = "W";
                 upAttackButton.Width = 23;
                 upAttackButton.Location = new Point(35, 16);
                 leftAttackButton.Visible = true;
@@ -60,7 +61,7 @@ namespace Wyprawa
                 potionBlueEq.BorderStyle = BorderStyle.None;
 
                 groupBox2.Text = "Atak";
-                upAttackButton.Text = "↑";
+                upAttackButton.Text = "W";
                 upAttackButton.Width = 23;
                 upAttackButton.Location = new Point(35, 16);
                 leftAttackButton.Visible = true;
@@ -81,7 +82,7 @@ namespace Wyprawa
                 potionBlueEq.BorderStyle = BorderStyle.None;
 
                 groupBox2.Text = "Atak";
-                upAttackButton.Text = "↑";
+                upAttackButton.Text = "W";
                 upAttackButton.Width = 23;
                 upAttackButton.Location = new Point(35, 16);
                 leftAttackButton.Visible = true;
@@ -102,7 +103,7 @@ namespace Wyprawa
                 potionBlueEq.BorderStyle = BorderStyle.None;
 
                 groupBox2.Text = "Użyj mikstury!";
-                upAttackButton.Text = "Ulecz się";
+                upAttackButton.Text = "W";
                 upAttackButton.Width = 60;
                 upAttackButton.Location = new Point(15, 28);
                 leftAttackButton.Visible = false;
@@ -124,61 +125,13 @@ namespace Wyprawa
                 potionBlueEq.BorderStyle = BorderStyle.FixedSingle;
 
                 groupBox2.Text = "Użyj mikstury";
-                upAttackButton.Text = "Ulecz się";
+                upAttackButton.Text = "W";
                 upAttackButton.Width = 60;
                 upAttackButton.Location = new Point(15, 28);
                 leftAttackButton.Visible = false;
                 rightAttackButton.Visible = false;
                 downAttackButton.Visible = false;
             }
-        }
-
-        private void upMoveButton_Click(object sender, EventArgs e)
-        {
-            game.Move(Direction.Up, random);
-            UpdateCharacters();
-        }
-
-        private void rightMoveButton_Click(object sender, EventArgs e)
-        {
-            game.Move(Direction.Right, random);
-            UpdateCharacters();
-        }
-
-        private void downMoveButton_Click(object sender, EventArgs e)
-        {
-            game.Move(Direction.Down, random);
-            UpdateCharacters();
-        }
-
-        private void leftMoveButton_Click(object sender, EventArgs e)
-        {
-            game.Move(Direction.Left, random);
-            UpdateCharacters();
-        }
-
-        private void upAttackButton_Click(object sender, EventArgs e)
-        {
-            game.Attack(Direction.Up, random);
-            UpdateCharacters();
-        }
-
-        private void rightAttackButton_Click(object sender, EventArgs e)
-        {
-            game.Attack(Direction.Right, random);
-            UpdateCharacters();
-        }
-
-        private void downAttackButton_Click(object sender, EventArgs e)
-        {
-            game.Attack(Direction.Down, random);
-            UpdateCharacters();
-        }
-
-        private void leftAttackButton_Click(object sender, EventArgs e)
-        {
-            game.Attack(Direction.Left, random);
-            UpdateCharacters();
         }
 
         private void UpdateCharacters()
@@ -315,16 +268,78 @@ namespace Wyprawa
 
             if (game.PlayerHitPoints <= 0)
             {
+                timer1.Enabled = false;
                 MessageBox.Show("Zostałeś zabity!");
                 Application.Exit();
             }
 
             if (enemiesShown < 1)
             {
+                timer1.Enabled = false;
                 MessageBox.Show("Pokonałeś przeciwników na tym poziomie");
                 game.NewLevel(random);
-                UpdateCharacters();
+                timer1.Enabled = true;
             }
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    {
+                        game.MovePlayer(Direction.Up);
+                        UpdateCharacters();
+                        break;
+                    }
+                case Keys.Down:
+                    {
+                        game.MovePlayer(Direction.Down);
+                        UpdateCharacters();
+                        break;
+                    }
+                case Keys.Left:
+                    {
+                        game.MovePlayer(Direction.Left);
+                        UpdateCharacters();
+                        break;
+                    }
+                case Keys.Right:
+                    {
+                        game.MovePlayer(Direction.Right);
+                        UpdateCharacters();
+                        break;
+                    }
+                case Keys.W:
+                    {
+                        game.Attack(Direction.Up, random);
+                        UpdateCharacters();
+                        break;
+                    }
+                case Keys.S:
+                    {
+                        game.Attack(Direction.Down, random);
+                        UpdateCharacters();
+                        break;
+                    }
+                case Keys.A:
+                    {
+                        game.Attack(Direction.Left, random);
+                        UpdateCharacters();
+                        break;
+                    }
+                case Keys.D:
+                    {
+                        game.Attack(Direction.Right, random);
+                        UpdateCharacters();
+                        break;
+                    }     
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            game.MoveEnemy(random);
+            UpdateCharacters();
         }
     }
 }

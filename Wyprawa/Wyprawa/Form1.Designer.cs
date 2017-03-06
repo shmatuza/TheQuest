@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.swordEq = new System.Windows.Forms.PictureBox();
             this.bowEq = new System.Windows.Forms.PictureBox();
@@ -62,6 +63,7 @@
             this.downAttackButton = new System.Windows.Forms.Button();
             this.upAttackButton = new System.Windows.Forms.Button();
             this.leftAttackButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.swordEq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bowEq)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maceEq)).BeginInit();
@@ -357,43 +359,43 @@
             // 
             // rightMoveButton
             // 
+            this.rightMoveButton.Enabled = false;
             this.rightMoveButton.Location = new System.Drawing.Point(60, 28);
             this.rightMoveButton.Name = "rightMoveButton";
             this.rightMoveButton.Size = new System.Drawing.Size(23, 23);
             this.rightMoveButton.TabIndex = 3;
             this.rightMoveButton.Text = "→";
             this.rightMoveButton.UseVisualStyleBackColor = true;
-            this.rightMoveButton.Click += new System.EventHandler(this.rightMoveButton_Click);
             // 
             // downMoveButton
             // 
+            this.downMoveButton.Enabled = false;
             this.downMoveButton.Location = new System.Drawing.Point(35, 44);
             this.downMoveButton.Name = "downMoveButton";
             this.downMoveButton.Size = new System.Drawing.Size(23, 23);
             this.downMoveButton.TabIndex = 2;
             this.downMoveButton.Text = "↓";
             this.downMoveButton.UseVisualStyleBackColor = true;
-            this.downMoveButton.Click += new System.EventHandler(this.downMoveButton_Click);
             // 
             // upMoveButton
             // 
+            this.upMoveButton.Enabled = false;
             this.upMoveButton.Location = new System.Drawing.Point(35, 16);
             this.upMoveButton.Name = "upMoveButton";
             this.upMoveButton.Size = new System.Drawing.Size(23, 23);
             this.upMoveButton.TabIndex = 1;
             this.upMoveButton.Text = "↑";
             this.upMoveButton.UseVisualStyleBackColor = true;
-            this.upMoveButton.Click += new System.EventHandler(this.upMoveButton_Click);
             // 
             // leftMoveButton
             // 
+            this.leftMoveButton.Enabled = false;
             this.leftMoveButton.Location = new System.Drawing.Point(10, 28);
             this.leftMoveButton.Name = "leftMoveButton";
             this.leftMoveButton.Size = new System.Drawing.Size(23, 23);
             this.leftMoveButton.TabIndex = 0;
             this.leftMoveButton.Text = "←";
             this.leftMoveButton.UseVisualStyleBackColor = true;
-            this.leftMoveButton.Click += new System.EventHandler(this.leftMoveButton_Click);
             // 
             // groupBox2
             // 
@@ -411,43 +413,49 @@
             // 
             // rightAttackButton
             // 
+            this.rightAttackButton.Enabled = false;
             this.rightAttackButton.Location = new System.Drawing.Point(60, 28);
             this.rightAttackButton.Name = "rightAttackButton";
             this.rightAttackButton.Size = new System.Drawing.Size(23, 23);
             this.rightAttackButton.TabIndex = 3;
-            this.rightAttackButton.Text = "→";
+            this.rightAttackButton.Text = "D";
             this.rightAttackButton.UseVisualStyleBackColor = true;
-            this.rightAttackButton.Click += new System.EventHandler(this.rightAttackButton_Click);
             // 
             // downAttackButton
             // 
+            this.downAttackButton.Enabled = false;
             this.downAttackButton.Location = new System.Drawing.Point(35, 44);
             this.downAttackButton.Name = "downAttackButton";
             this.downAttackButton.Size = new System.Drawing.Size(23, 23);
             this.downAttackButton.TabIndex = 2;
-            this.downAttackButton.Text = "↓";
+            this.downAttackButton.Text = "S";
             this.downAttackButton.UseVisualStyleBackColor = true;
-            this.downAttackButton.Click += new System.EventHandler(this.downAttackButton_Click);
             // 
             // upAttackButton
             // 
+            this.upAttackButton.Enabled = false;
             this.upAttackButton.Location = new System.Drawing.Point(35, 16);
             this.upAttackButton.Name = "upAttackButton";
             this.upAttackButton.Size = new System.Drawing.Size(23, 23);
             this.upAttackButton.TabIndex = 1;
-            this.upAttackButton.Text = "↑";
+            this.upAttackButton.Text = "W";
             this.upAttackButton.UseVisualStyleBackColor = true;
-            this.upAttackButton.Click += new System.EventHandler(this.upAttackButton_Click);
             // 
             // leftAttackButton
             // 
+            this.leftAttackButton.Enabled = false;
             this.leftAttackButton.Location = new System.Drawing.Point(10, 28);
             this.leftAttackButton.Name = "leftAttackButton";
             this.leftAttackButton.Size = new System.Drawing.Size(23, 23);
             this.leftAttackButton.TabIndex = 0;
-            this.leftAttackButton.Text = "←";
+            this.leftAttackButton.Text = "A";
             this.leftAttackButton.UseVisualStyleBackColor = true;
-            this.leftAttackButton.Click += new System.EventHandler(this.leftAttackButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 250;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -478,6 +486,7 @@
             this.Name = "Form1";
             this.Text = "Wyprawa";
             this.Load += new System.EventHandler(this.Form1_Load_1);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.swordEq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bowEq)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maceEq)).EndInit();
@@ -536,6 +545,7 @@
         private System.Windows.Forms.Button downAttackButton;
         private System.Windows.Forms.Button upAttackButton;
         private System.Windows.Forms.Button leftAttackButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

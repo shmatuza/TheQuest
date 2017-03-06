@@ -29,9 +29,12 @@ namespace Wyprawa
             player = new Player(this, new Point(boundaries.Left + 10, boundaries.Top + 70));
         }
 
-        public void Move(Direction direction, Random random)
+        public void MovePlayer(Direction direction)
         {
             player.Move(direction);
+        }
+        public void MoveEnemy(Random random)
+        {
             foreach (Enemy enemy in Enemies)
                 enemy.Move(random);
         }
@@ -59,8 +62,6 @@ namespace Wyprawa
         public void Attack(Direction direction, Random random)
         {
             player.Attack(direction, random);
-            foreach (Enemy enemy in Enemies)
-                enemy.Move(random); //CHYBA BŁĄD W KSIĄŻCE
         }
 
         private Point GetRandomLocation(Random random)
